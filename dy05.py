@@ -19,6 +19,7 @@ class DY05:
           program.
         """
 
+        pi.set_mode(pin, pigpio.OUTPUT)
         self.pi = pi
         self.pin = pin
         self.transmit_time = transmit_time
