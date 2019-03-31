@@ -29,7 +29,7 @@ class DY05:
         Transmits the command. Args:
         * address - 20 bit address of the socket group.
         * socket - socket number 1-4. Any other value means "all in group"
-        * action - 1 - turn on or 0 - torn off
+        * action - 1 - turn on or 0 - turn off
         """
         def add_bit(wf, pin, bit):
             if bit == 0:
@@ -74,11 +74,3 @@ class DY05:
         self.pi.wave_send_repeat(wid)
         time.sleep(self.transmit_time)
         self.pi.wave_tx_stop()
-
-dy05 = DY05(pigpio.pi(), 17)
-
-while True:
-    dy05.send(42, 1, 1);
-    time.sleep(1)
-    dy05.send(42, 1, 0);
-    time.sleep(1)
